@@ -1,6 +1,6 @@
 {
   "name": "event-callback-promise",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package enable you to convert you callback function and events callbacks into promise.",
   "main": "index.js",
   "scripts": {
