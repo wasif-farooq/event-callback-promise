@@ -47,7 +47,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "node -v"
+      "pre-push": "npm run pre:commit"
     }
   }
 }
