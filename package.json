@@ -1,0 +1,53 @@
+{
+  "name": "event-callback-promise",
+  "version": "1.0.0",
+  "description": "This package enable you to convert you callback function and events callbacks into promise.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore ./src ./test",
+    "pre:publish": "npm run lint && npm run test",
+    "build": "npm test && node ./node_modules/webpack/bin/webpack.js --mode production --config webpack/webpack.config.js",
+    "test": "mocha --require ./test/bootstrap.js --timeout 10000 --reporter nyan --recursive   ./test/**/*.test.js",
+    "coverage": "nyc --reporter html --reporter text npm test",
+    "pre:commit": "npm test --silent"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonsor/event-callback-promise.git"
+  },
+  "keywords": [
+    "promise",
+    "callback",
+    "event promise",
+    "callback promise"
+  ],
+  "author": "Wasif Farooq",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sonsor/event-callback-promise/issues"
+  },
+  "homepage": "https://github.com/sonsor/event-callback-promise#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.5.1",
+    "eslint-config-node": "^4.0.0",
+    "husky": "^3.0.9",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.2.2",
+    "mock-fs": "^4.10.2",
+    "nyc": "^14.1.1",
+    "sinon": "^7.5.0",
+    "sinon-chai": "^3.3.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "node -v"
+    }
+  }
+}
