@@ -12,7 +12,8 @@
     "pre:commit": "npm test --silent"
   },
   "files": [
-    "src/"
+    "src/",
+    "index.js"
   ],
   "repository": {
     "type": "git",
