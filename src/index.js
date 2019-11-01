@@ -1,13 +1,19 @@
 const ecp = (fn, event = null) => {
 
-    // throws error if trying to promise the event call but but emitter doesn't implement Emitter class
-    if (event && !event.on) {
-        throw new Error('The event emitter should implement Emitter interface');
-    }
+    if (event !== null) {
 
-    // checking if first paramerter is a function or not
-    if (!event && (!fn || typeof fn !== 'function')) {
-        throw new Error('first parameter should be a function')
+        // throws error if trying to promise the event call but but emitter doesn't implement Emitter class
+        if (!fn || !fn.on) {
+            throw new Error('The event emitter should implement Emitter interface');
+        }
+
+    } else {
+
+            // checking if first paramerter is a function or not
+        if (!fn || typeof fn !== 'function') {
+            throw new Error('first parameter should be a function')
+        }
+
     }
 
     return (...params) => {
@@ -16,11 +22,11 @@ const ecp = (fn, event = null) => {
         return event ? new Promise((resolve, reject) => {
 
             const callback = (...data) => {
-                resolve.apply(null, ...data);
+                resolve.apply(null, data);
             }
     
             const onError = (...data) => {
-                reject.apply(null, ...data);
+                reject.apply(null, data);
             }
     
             fn.on('error', onError);
