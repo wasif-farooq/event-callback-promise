@@ -11,7 +11,9 @@ const ecp = (fn, event = null) => {
     }
 
     return (...params) => {
-        event ? new Promise((resolve, reject) => {
+
+        // return event promise if event exists otherwise return callbakc promise
+        return event ? new Promise((resolve, reject) => {
 
             const callback = (...data) => {
                 resolve.apply(null, ...data);
@@ -39,7 +41,7 @@ const ecp = (fn, event = null) => {
             params.push(callback);
     
             try {
-                fn.apply(null, ...params);
+                fn.apply(null, params);
             } catch (err) {
                 reject(err);
             }
