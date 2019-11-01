@@ -12,7 +12,7 @@
     "pre:commit": "npm test --silent"
   },
   "files": [
-    "dist"
+    "src"
   ],
   "repository": {
     "type": "git",

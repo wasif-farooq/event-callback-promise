@@ -3,15 +3,20 @@ const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: {
-    'file-clipper': './src/index.js',
+    'index': './src/index.js',
   },
   output: {
     path: path.join(__dirname, '..', 'dist'),
     publicPath: '/',
     filename: '[name].js'
   },
+  optimization: {
+		// We no not want to minimize our code.
+		minimize: false
+  },
+  
   target: 'node',
   node: {
     __dirname: false,
