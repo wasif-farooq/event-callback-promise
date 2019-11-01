@@ -52,6 +52,21 @@ describe('test the ecp function', function() {
                 expect(err).to.be.a('Error');
             })
         });
+
+        it('should call then reject if function throws error', function() {
+            
+            let func = (num, callback) => {
+                throw new Error('execution error');
+            }
+
+            let pfunc = ecp(func);
+
+            pfunc(1)
+            .then((data) => {})
+            .catch ((err) => {
+                expect(err).to.be.a('Error');
+            })
+        });
     });
 
     describe('check the event callback functions', function() {
